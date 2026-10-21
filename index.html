@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f1e7" />
+    <meta
+      name="description"
+      content="دعوة زفاف ميار ومحمد — يسعدنا أن تشاركونا يومنا الجميل."
+    />
+    <title>ميار ومحمد | دعوة زفاف</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="is-locked">
+    <!-- شاشة الظرف وختم الشمع -->
+    <section
+      class="opening-screen"
+      id="openingScreen"
+      aria-labelledby="openingTitle"
+    >
+      <div class="opening-screen__glow" aria-hidden="true"></div>
+      <span
+        class="opening-screen__ornament opening-screen__ornament--top"
+        aria-hidden="true"
+        >❧</span
+      >
+      <span
+        class="opening-screen__ornament opening-screen__ornament--bottom"
+        aria-hidden="true"
+        >❧</span
+      >
+
+      <div class="opening-screen__content">
+        <p class="eyebrow opening-screen__bismillah">
+          بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+        </p>
+        <p class="opening-screen__eyebrow">بكل الحب، أُرسلت إليكم</p>
+        <h1 class="opening-screen__heading" id="openingTitle">
+          دعوة إلى يومٍ لا يُنسى
+        </h1>
+
+        <div
+          class="envelope-scene"
+          id="envelopeScene"
+          aria-label="ظرف دعوة زفاف مغلق بختم شمع"
+        >
+          <div class="envelope-scene__shadow" aria-hidden="true"></div>
+
+          <article
+            class="invitation-paper"
+            id="invitationPaper"
+            aria-label="بطاقة دعوة الزفاف"
+          >
+            <div class="invitation-paper__inner">
+              <span class="invitation-paper__ornament" aria-hidden="true"
+                >✦ ❦ ✦</span
+              >
+              <p class="invitation-paper__bismillah">
+                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+              </p>
+              <p class="invitation-paper__verse">
+                ﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ
+                أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً
+                وَرَحْمَةً ﴾
+              </p>
+              <p class="invitation-paper__reference">سورة الروم · الآية ٢١</p>
+              <span class="invitation-paper__rule" aria-hidden="true"></span>
+              <p class="invitation-paper__label">دعوة زفاف</p>
+              <h2 class="invitation-paper__names">ميار <span>و</span> محمد</h2>
+              <p class="invitation-paper__date">السبت · ٢٨ أغسطس ٢٠٢٧</p>
+            </div>
+          </article>
+
+          <div class="envelope" aria-hidden="true">
+            <div class="envelope__back"></div>
+            <div class="envelope__side-fold envelope__side-fold--left"></div>
+            <div class="envelope__side-fold envelope__side-fold--right"></div>
+            <div class="envelope__front"></div>
+            <div class="envelope__flap">
+              <span class="envelope__flap-line"></span>
+            </div>
+            <div class="envelope__edge"></div>
+
+            <button
+              class="wax-seal"
+              id="openInvitation"
+              type="button"
+              aria-label="اضغط على ختم الشمع لفتح دعوة الزفاف"
+              aria-describedby="openHint"
+            >
+              <span class="wax-seal__halo" aria-hidden="true"></span>
+              <span class="wax-seal__body" aria-hidden="true"></span>
+              <span class="wax-seal__monogram" aria-hidden="true">M&amp;M</span>
+              <svg
+                class="wax-seal__crack"
+                viewBox="0 0 100 100"
+                aria-hidden="true"
+              >
+                <path d="M52 13 44 31 55 40 42 52 51 62 39 82" />
+                <path d="M44 31 30 27M55 40 68 35M42 52 29 57M51 62 66 71" />
+              </svg>
+              <span class="wax-seal__shine" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+
+        <p class="opening-screen__small" id="openingStatus">
+          ميار ومحمد · دعوة زفاف
+        </p>
+        <p class="opening-screen__hint" id="openHint">
+          <span class="opening-screen__hint-dot" aria-hidden="true"></span> اضغط
+          على ختم الشمع لفتح الظرف
+        </p>
+        <button
+          class="opening-screen__continue"
+          id="continueInvitation"
+          type="button"
+          hidden
+        >
+          <span>تابع إلى تفاصيل الدعوة</span
+          ><span class="opening-screen__continue-arrow" aria-hidden="true"
+            >↓</span
+          >
+        </button>
+      </div>
+    </section>
+
+    <main class="invitation" id="invitation" aria-hidden="true" inert>
+      <header class="site-header container">
+        <a class="brand" href="#top" aria-label="العودة إلى بداية الدعوة">
+          <span class="brand__mark" aria-hidden="true">م</span>
+          <span>مَوَدَّة</span>
+        </a>
+        <button
+          class="icon-button"
+          id="shareButton"
+          type="button"
+          aria-label="مشاركة الدعوة"
+          title="مشاركة الدعوة"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <path d="m8.6 10.6 6.8-4.2M8.6 13.4l6.8 4.2"></path>
+          </svg>
+        </button>
+      </header>
+
+      <!-- الواجهة الرئيسية -->
+      <section class="hero" id="top">
+        <div class="hero__frame" aria-hidden="true">
+          <div class="hero__arch hero__arch--outer"></div>
+          <div class="hero__arch hero__arch--inner"></div>
+          <span class="hero__spark hero__spark--one">✦</span>
+          <span class="hero__spark hero__spark--two">✧</span>
+          <span class="hero__leaf hero__leaf--one">❧</span>
+          <span class="hero__leaf hero__leaf--two">❧</span>
+        </div>
+        <div class="hero__content">
+          <p class="eyebrow hero__eyebrow">يوم من العمر · ذكرى للأبد</p>
+          <h1 class="hero__names">
+            <span>ميار</span><i>و</i><span>محمد</span>
+          </h1>
+          <div class="divider-ornament" aria-hidden="true">
+            <span></span>✦<span></span>
+          </div>
+          <p class="hero__message">
+            بكل الحب، نتمنى أن تكونوا معنا<br />لنبدأ حكاية جديدة وسط أحبابنا.
+          </p>
+          <p class="hero__date">
+            السبت، ٢٨ أغسطس ٢٠٢٧ <span>·</span> السابعة مساءً
+          </p>
+          <a class="text-link" href="#eventDetails"
+            >تفاصيل المناسبة <span aria-hidden="true">↓</span></a
+          >
+        </div>
+        <span class="hero__side-note" aria-hidden="true"
+          >A DAY TO REMEMBER</span
+        >
+      </section>
+
+      <!-- آية ودعاء -->
+      <section class="verse section-shell reveal">
+        <div class="section-kicker">بداية مباركة</div>
+        <div class="verse__ornament" aria-hidden="true">❦</div>
+        <p class="verse__text">
+          ﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا
+          لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً ﴾
+        </p>
+        <p class="verse__reference">سورة الروم · الآية ٢١</p>
+        <div class="fine-line" aria-hidden="true"></div>
+        <p class="verse__dua">بارك الله لهما وبارك عليهما وجمع بينهما في خير</p>
+      </section>
+
+      <!-- العد التنازلي -->
+      <section
+        class="countdown-section section-shell reveal"
+        aria-labelledby="countdownTitle"
+      >
+        <div class="section-kicker">ننتظر هذا اليوم</div>
+        <h2 class="section-title" id="countdownTitle">باقي على فرحتنا</h2>
+        <p class="section-intro">كل لحظة تقرّبنا من يوم نتمنى أن يجمعنا بكم.</p>
+        <div
+          class="countdown"
+          id="countdown"
+          aria-label="الوقت المتبقي حتى موعد الزفاف"
+          aria-live="off"
+        >
+          <div class="countdown__unit">
+            <strong id="days">—</strong><span>يوم</span>
+          </div>
+          <div class="countdown__unit">
+            <strong id="hours">—</strong><span>ساعة</span>
+          </div>
+          <div class="countdown__unit">
+            <strong id="minutes">—</strong><span>دقيقة</span>
+          </div>
+          <div class="countdown__unit">
+            <strong id="seconds">—</strong><span>ثانية</span>
+          </div>
+        </div>
+        <p class="countdown__finished" id="countdownFinished" hidden>
+          بدأت حكايتنا الجميلة، شكرًا لمشاركتنا الفرحة.
+        </p>
+        <button
+          class="button button--outline"
+          id="calendarButton"
+          type="button"
+        >
+          أضف الموعد إلى التقويم <span aria-hidden="true">↗</span>
+        </button>
+      </section>
+
+      <!-- العائلتان -->
+      <section class="families section-shell reveal" id="eventDetails">
+        <div class="section-kicker">فرحتنا تكمل بكم</div>
+        <h2 class="section-title">بمباركة العائلتين</h2>
+        <div class="families__grid">
+          <article class="family-card">
+            <span class="family-card__flourish" aria-hidden="true">❧</span>
+            <p class="family-card__label">عائلة العروس</p>
+            <h3>أحمد وفاطمة</h3>
+            <p>يتشرفان بدعوتكم لمشاركة الفرحة.</p>
+          </article>
+          <div class="families__ampersand" aria-hidden="true">&</div>
+          <article class="family-card">
+            <span class="family-card__flourish" aria-hidden="true">❧</span>
+            <p class="family-card__label">عائلة العريس</p>
+            <h3>حسن ونادية</h3>
+            <p>يسعدهما حضوركم ومشاركتكم أجمل لحظاتنا.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- مكان الفرح -->
+      <section class="venue section-shell reveal" aria-labelledby="venueTitle">
+        <div class="venue__art" aria-hidden="true">
+          <div class="venue__sun"></div>
+          <div class="venue__building">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="venue__ground"></div>
+        </div>
+        <div class="venue__details">
+          <div class="section-kicker">موعدنا ومكاننا</div>
+          <h2 class="section-title" id="venueTitle">نلتقي هناك</h2>
+          <p class="venue__name">Villa Le Marriage</p>
+          <p class="venue__address">١٤ شارع النيل، الزمالك، القاهرة</p>
+          <p class="venue__note">
+            نستقبلكم من السادسة مساءً، ونتمنى لكم وصولًا سهلًا.
+          </p>
+          <a
+            class="button button--dark"
+            href="https://maps.google.com/?q=Villa+Le+Marriage+Cairo"
+            target="_blank"
+            rel="noopener noreferrer"
+            >افتح الموقع على الخريطة <span aria-hidden="true">↗</span></a
+          >
+        </div>
+      </section>
+
+      <!-- برنامج الليلة -->
+      <section
+        class="schedule section-shell reveal"
+        aria-labelledby="scheduleTitle"
+      >
+        <div class="section-kicker">لحظات نعيشها سويًا</div>
+        <h2 class="section-title" id="scheduleTitle">برنامج الليلة</h2>
+        <div class="schedule__list">
+          <article class="schedule-item">
+            <div class="schedule-item__time">٦:٠٠ <small>م</small></div>
+            <div class="schedule-item__marker" aria-hidden="true">
+              <span>١</span>
+            </div>
+            <div class="schedule-item__copy">
+              <h3>الاستقبال</h3>
+              <p>نستقبلكم بكل حب قبل بداية الحفل.</p>
+            </div>
+          </article>
+          <article class="schedule-item">
+            <div class="schedule-item__time">٧:٠٠ <small>م</small></div>
+            <div class="schedule-item__marker" aria-hidden="true">
+              <span>٢</span>
+            </div>
+            <div class="schedule-item__copy">
+              <h3>بداية الحفل</h3>
+              <p>لحظتنا المنتظرة وسط الأهل والأصدقاء.</p>
+            </div>
+          </article>
+          <article class="schedule-item">
+            <div class="schedule-item__time">٨:٠٠ <small>م</small></div>
+            <div class="schedule-item__marker" aria-hidden="true">
+              <span>٣</span>
+            </div>
+            <div class="schedule-item__copy">
+              <h3>العشاء</h3>
+              <p>وقت جميل للطعام والحديث والذكريات.</p>
+            </div>
+          </article>
+          <article class="schedule-item">
+            <div class="schedule-item__time">١٠:٠٠ <small>م</small></div>
+            <div class="schedule-item__marker" aria-hidden="true">
+              <span>٤</span>
+            </div>
+            <div class="schedule-item__copy">
+              <h3>الاحتفال</h3>
+              <p>نختم الليلة بالرقص والفرحة.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- الملابس والألوان -->
+      <section class="dress-code section-shell reveal">
+        <div class="dress-code__copy">
+          <div class="section-kicker">لمسة أنيقة</div>
+          <h2 class="section-title">ننتظركم بأجمل إطلالة</h2>
+          <p>
+            الزي رسمي. اختاروا ما يجعلكم مرتاحين ومستعدين لقضاء أمسية جميلة
+            معنا.
+          </p>
+          <div class="swatches" aria-label="الألوان المقترحة">
+            <span style="--swatch: #f5f1e7" title="عاجي"></span>
+            <span style="--swatch: #d7d0bc" title="بيج"></span>
+            <span style="--swatch: #82866b" title="أخضر زيتوني"></span>
+            <span style="--swatch: #343c32" title="أخضر داكن"></span>
+            <span style="--swatch: #b69a67" title="ذهبي هادئ"></span>
+          </div>
+        </div>
+        <div class="dress-code__art" aria-hidden="true">
+          <div class="dress-code__circle dress-code__circle--back"></div>
+          <div class="dress-code__vase"><span></span><i></i><b></b></div>
+          <div class="dress-code__branch">❧</div>
+        </div>
+      </section>
+
+      <!-- معرض بصري زخرفي بدون ملفات خارجية -->
+      <section
+        class="gallery section-shell reveal"
+        aria-labelledby="galleryTitle"
+      >
+        <div class="section-kicker">تفاصيل من حكايتنا</div>
+        <h2 class="section-title" id="galleryTitle">لحظات نحبها</h2>
+        <p class="section-intro">
+          مساحة لصوركما المفضلة — يمكن استبدال اللوحات بصور حقيقية لاحقًا.
+        </p>
+        <div class="gallery__stage">
+          <button
+            class="gallery__arrow gallery__arrow--prev"
+            id="galleryPrev"
+            type="button"
+            aria-label="اللوحة السابقة"
+            disabled
+          >
+            ‹
+          </button>
+          <article
+            class="gallery-card gallery-card--one is-active"
+            data-gallery-card
+          >
+            <div
+              class="gallery-art gallery-art--couple"
+              role="img"
+              aria-label="رسم زخرفي لقوسين متداخلين"
+            ></div>
+            <p>بداية الحكاية</p>
+          </article>
+          <article
+            class="gallery-card gallery-card--two"
+            data-gallery-card
+            hidden
+          >
+            <div
+              class="gallery-art gallery-art--flowers"
+              role="img"
+              aria-label="رسم زخرفي لباقة زهور"
+            ></div>
+            <p>تفاصيل صغيرة</p>
+          </article>
+          <article
+            class="gallery-card gallery-card--three"
+            data-gallery-card
+            hidden
+          >
+            <div
+              class="gallery-art gallery-art--rings"
+              role="img"
+              aria-label="رسم زخرفي لخاتمين"
+            ></div>
+            <p>وعد للأبد</p>
+          </article>
+          <article
+            class="gallery-card gallery-card--four"
+            data-gallery-card
+            hidden
+          >
+            <div
+              class="gallery-art gallery-art--table"
+              role="img"
+              aria-label="رسم زخرفي لمائدة احتفال"
+            ></div>
+            <p>ليلة لا تُنسى</p>
+          </article>
+          <button
+            class="gallery__arrow gallery__arrow--next"
+            id="galleryNext"
+            type="button"
+            aria-label="اللوحة التالية"
+          >
+            ›
+          </button>
+        </div>
+        <p class="gallery__counter" id="galleryCounter" aria-live="polite">
+          ١ / ٤
+        </p>
+      </section>
+
+      <!-- تأكيد الحضور -->
+      <section class="rsvp section-shell reveal" aria-labelledby="rsvpTitle">
+        <div class="rsvp__ornament" aria-hidden="true">✦</div>
+        <div class="section-kicker">نحب أن نعرف بقدومكم</div>
+        <h2 class="section-title" id="rsvpTitle">هل ستكونون معنا؟</h2>
+        <p class="section-intro">يساعدنا ردّكم على تجهيز أمسية تليق بكم.</p>
+        <form class="rsvp-form" id="rsvpForm">
+          <div class="form-field">
+            <label for="guestName">الاسم</label>
+            <input
+              id="guestName"
+              name="guestName"
+              type="text"
+              autocomplete="name"
+              minlength="2"
+              maxlength="100"
+              placeholder="اكتب اسمك"
+              required
+            />
+          </div>
+          <fieldset class="form-field form-field--attendance">
+            <legend>هل ستتمكن من الحضور؟</legend>
+            <label class="choice"
+              ><input type="radio" name="attendance" value="yes" checked /><span
+                >بكل سرور</span
+              ></label
+            >
+            <label class="choice"
+              ><input type="radio" name="attendance" value="no" /><span
+                >للأسف لن أستطيع</span
+              ></label
+            >
+            <label class="choice"
+              ><input type="radio" name="attendance" value="maybe" /><span
+                >لست متأكدًا بعد</span
+              ></label
+            >
+          </fieldset>
+          <div class="form-field form-field--guests" id="companionsField">
+            <label for="guestCount">عدد المرافقين (بدونك)</label>
+            <div class="guest-stepper">
+              <button
+                type="button"
+                id="guestMinus"
+                aria-label="تقليل عدد المرافقين"
+                disabled
+              >
+                −
+              </button>
+              <output id="guestCountOutput" for="guestCount">٠</output>
+              <button
+                type="button"
+                id="guestPlus"
+                aria-label="زيادة عدد المرافقين"
+              >
+                +
+              </button>
+            </div>
+            <input type="hidden" id="guestCount" name="guestCount" value="0" />
+          </div>
+          <div class="form-field">
+            <label for="guestMessage"
+              >كلمة للعروسين <span>(اختياري)</span></label
+            >
+            <textarea
+              id="guestMessage"
+              name="message"
+              rows="3"
+              maxlength="500"
+              placeholder="اكتب أمنية جميلة..."
+            ></textarea>
+          </div>
+          <button class="button button--dark button--full" type="submit">
+            تأكيد الرد <span aria-hidden="true">↗</span>
+          </button>
+          <p class="form-note">
+            هذه نسخة تجريبية؛ لن يتم إرسال الرد أو حفظه على الإنترنت.
+          </p>
+          <div
+            class="form-feedback"
+            id="formFeedback"
+            role="status"
+            aria-live="polite"
+            hidden
+          ></div>
+        </form>
+      </section>
+
+      <!-- رسائل تهنئة تجريبية -->
+      <section class="wishes section-shell reveal">
+        <div class="section-kicker">كلمات من القلب</div>
+        <h2 class="section-title">أمنيات جميلة</h2>
+        <div class="wishes__grid">
+          <blockquote class="wish-card">
+            <span aria-hidden="true">“</span>
+            <p>ألف مبروك، ربنا يجعل أيامكم كلها مودة ورحمة.</p>
+            <cite>سلمى</cite>
+          </blockquote>
+          <blockquote class="wish-card">
+            <span aria-hidden="true">“</span>
+            <p>فرحة جميلة وبداية أجمل. نتمنى لكم عمرًا مليئًا بالخير.</p>
+            <cite>كريم وداليا</cite>
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- الخاتمة -->
+      <footer class="closing">
+        <div class="closing__ornament" aria-hidden="true">❧</div>
+        <p class="eyebrow">وجودكم هو أجمل هدية</p>
+        <h2>نراكم على خير</h2>
+        <p>شكرًا لأنكم جزء من حكايتنا.</p>
+        <p class="closing__names">ميار <span>و</span> محمد</p>
+        <div class="divider-ornament" aria-hidden="true">
+          <span></span>✦<span></span>
+        </div>
+        <button
+          class="text-link closing__share"
+          id="shareButtonFooter"
+          type="button"
+        >
+          شارك الدعوة مع أحبابك <span aria-hidden="true">↗</span>
+        </button>
+        <p class="closing__copyright">
+          صُنعت بكل حب <span aria-hidden="true">♡</span>
+        </p>
+      </footer>
+    </main>
+    <!-- الموسيقى: ضع ملفًا تملك حق استخدامه داخل assets بالاسم المحدد أدناه. -->
+    <audio id="weddingAudio" preload="none" loop>
+      <source src="assets/farha-mahmoud-el-esseily.mp3" type="audio/mpeg" />
+    </audio>
+    <button
+      class="audio-toggle"
+      id="audioToggle"
+      type="button"
+      aria-label="تشغيل الموسيقى"
+      title="تشغيل الموسيقى"
+      aria-controls="weddingAudio"
+      aria-pressed="false"
+      hidden
+    >
+      <svg
+        class="audio-toggle__icon audio-toggle__icon--playing"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M4 10v4h3l5 4V6l-5 4H4Z"></path>
+        <path d="M16 9a4 4 0 0 1 0 6"></path>
+        <path d="M18.5 6.5a8 8 0 0 1 0 11"></path>
+      </svg>
+      <svg
+        class="audio-toggle__icon audio-toggle__icon--paused"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M4 10v4h3l5 4V6l-5 4H4Z"></path>
+        <path d="m16 9 5 6m0-6-5 6"></path>
+      </svg>
+    </button>
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  </body>
+</html>
