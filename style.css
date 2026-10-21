@@ -283,21 +283,12 @@ textarea:focus-visible {
   font-size: 0.95rem;
   letter-spacing: 0.28em;
 }
-.invitation-paper__bismillah {
-  margin: 0 0 10px;
-  color: var(--olive-dark);
-  font-size: 0.69rem;
-}
-.invitation-paper__verse {
+.invitation-paper__poem {
   max-width: 100%;
-  margin: 0;
-  color: #3c4839;
-  font: 400 clamp(0.78rem, 2.25vw, 0.9rem)/1.95 var(--serif);
-}
-.invitation-paper__reference {
   margin: 8px 0 0;
-  color: #8a7959;
-  font-size: 0.66rem;
+  color: #3c4839;
+  font: 400 clamp(0.88rem, 2.4vw, 1rem)/1.95 var(--serif);
+  text-wrap: pretty;
 }
 .invitation-paper__rule {
   display: block;
@@ -617,8 +608,17 @@ textarea:focus-visible {
   transform: scale(0.86);
 }
 .opening-screen.is-paper-revealing .invitation-paper {
-  z-index: 7;
+  /* مرحلة أولى: ترتفع حافة الورقة قليلًا وهي ما زالت خلف جسم الظرف. */
+  z-index: 2;
   cursor: default;
+  transform: translateY(112px) rotate(0.25deg) scale(0.99);
+  box-shadow:
+    0 12px 25px rgba(36, 43, 31, 0.12),
+    inset 0 0 0 4px rgba(255, 255, 255, 0.7);
+}
+.opening-screen.is-paper-lifted .invitation-paper {
+  /* مرحلة ثانية: تخرج الورقة إلى الأمام بعد أن يفتح الغطاء. */
+  z-index: 7;
   transform: translateY(-14px) rotate(-0.55deg) scale(1);
   box-shadow:
     0 24px 44px rgba(36, 43, 31, 0.22),
@@ -1991,8 +1991,8 @@ textarea:focus-visible {
   .invitation-paper__inner {
     padding: 13px 9px 10px;
   }
-  .invitation-paper__verse {
-    font-size: 0.78rem;
+  .invitation-paper__poem {
+    font-size: 0.82rem;
     line-height: 1.85;
   }
   .envelope {
@@ -2021,14 +2021,10 @@ textarea:focus-visible {
   .invitation-paper__inner {
     padding: 11px 7px 9px;
   }
-  .invitation-paper__bismillah {
-    font-size: 0.63rem;
-  }
-  .invitation-paper__verse {
-    font-size: 0.72rem;
+  .invitation-paper__poem {
+    font-size: 0.76rem;
     line-height: 1.8;
   }
-  .invitation-paper__reference,
   .invitation-paper__date {
     font-size: 0.61rem;
   }
@@ -2359,5 +2355,143 @@ textarea:focus-visible {
   .audio-toggle.is-playing::after {
     animation: none !important;
     transition: none !important;
+  }
+}
+
+/* إشارة سحب أنيقة أسفل واجهة الدعوة، مع لمعة وسهم متحركين */
+.scroll-cue {
+  position: relative;
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 25px auto 0;
+  padding: 9px 15px 4px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 18px;
+  color: var(--olive-dark);
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.scroll-cue::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -45%;
+  width: 34%;
+  content: "";
+  background: linear-gradient(
+    105deg,
+    transparent,
+    rgba(255, 255, 255, 0.78),
+    transparent
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  animation: scroll-cue-shine 3.2s ease-in-out infinite;
+}
+.scroll-cue__label {
+  position: relative;
+  color: var(--olive-dark);
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  background: linear-gradient(
+    100deg,
+    var(--olive-dark) 0%,
+    var(--olive-dark) 38%,
+    #b59a67 50%,
+    var(--olive-dark) 62%,
+    var(--olive-dark) 100%
+  );
+  background-size: 230% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: scroll-cue-text-shine 3.4s ease-in-out infinite;
+}
+.scroll-cue__indicator {
+  position: relative;
+  display: grid;
+  width: 36px;
+  height: 46px;
+  place-items: center;
+  border: 1px solid rgba(70, 87, 71, 0.35);
+  border-radius: 999px;
+  background: rgba(251, 249, 243, 0.56);
+  box-shadow:
+    inset 0 0 0 3px rgba(255, 255, 255, 0.48),
+    0 5px 16px rgba(37, 51, 42, 0.06);
+}
+.scroll-cue__arrow {
+  display: block;
+  color: var(--olive-dark);
+  font-size: 1.25rem;
+  line-height: 1;
+  animation: scroll-cue-bounce 1.4s ease-in-out infinite;
+}
+.scroll-cue:hover .scroll-cue__indicator,
+.scroll-cue:focus-visible .scroll-cue__indicator {
+  border-color: var(--gold);
+  background: rgba(255, 253, 247, 0.92);
+}
+.scroll-cue:focus-visible {
+  outline: 2px solid rgba(181, 154, 103, 0.8);
+  outline-offset: 3px;
+}
+@keyframes scroll-cue-shine {
+  0%,
+  14% {
+    left: -45%;
+    opacity: 0;
+  }
+  22% {
+    opacity: 0.85;
+  }
+  58%,
+  100% {
+    left: 125%;
+    opacity: 0;
+  }
+}
+@keyframes scroll-cue-text-shine {
+  0%,
+  20% {
+    background-position: 100% 50%;
+  }
+  62%,
+  100% {
+    background-position: -130% 50%;
+  }
+}
+@keyframes scroll-cue-bounce {
+  0%,
+  100% {
+    transform: translateY(-3px);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+.verse__text br {
+  display: block;
+}
+@media (max-width: 390px) {
+  .scroll-cue {
+    margin-top: 20px;
+    padding-inline: 10px;
+  }
+  .scroll-cue__label {
+    font-size: 0.79rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue::before,
+  .scroll-cue__label,
+  .scroll-cue__arrow {
+    animation: none !important;
   }
 }

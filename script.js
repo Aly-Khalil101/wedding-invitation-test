@@ -196,8 +196,9 @@ openButton.addEventListener("click", () => {
   const sealBreakDuration = 580;
   const flapOpenDuration = 1400;
   const pauseAfterFlap = 120;
-  const paperTravelTime = 1950;
   const paperLiftDelay = 1050;
+  const paperLiftDuration = 1650;
+  const paperTravelTime = paperLiftDelay + paperLiftDuration;
   const readingDuration = 2000;
 
   if (reducedMotion) {
